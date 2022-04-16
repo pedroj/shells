@@ -1,6 +1,6 @@
 # Generative art
 
-![shell_02](./images/achatina02#358003.png "A shell")
+![shell_02](images/achatina02#358003.png "A shell")
 
 
 These are my first explorations into generative art. Most of them are `R`or `javscript`code files, compiled using either RStudio or Processing. 
