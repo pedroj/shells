@@ -11,6 +11,10 @@ library(Rcpp)
 # Set parameters (see mathart::mollusc() documentation for details)
 # Parameters are in file shell_parameters_table1_Cortie.R
 
+#-----------------------------------------------------------------------------
+TIME <- Sys.time()
+#-----------------------------------------------------------------------------
+
 # Turritela
 n_s <- 650L
 n_t <- 2000L
@@ -78,3 +82,6 @@ p
 ggsave("./images/turritela02#812527_3.png", 
 	   width = 80, height = 80, units = "cm", dpi= 300)
 
+#-----------------------------------------------------------------------------
+Sys.time() - TIME
+#-----------------------------------------------------------------------------
