@@ -44,16 +44,16 @@ df <- mollusc(n_s = n_s, n_t = n_t,
 
 # Create plot
 p <- ggplot() +
-  geom_point(aes(x, z), df, size = 0.03, alpha = 0.3, color= "#009CCD") +
-  geom_path(aes(x, z), df, size = 0.03, alpha = 0.3, color= "#009CCD") +
+  geom_point(aes(x, z), df, size = 0.03, alpha = 0.3, color= "#812527") +
+  geom_path(aes(x, z), df, size = 0.03, alpha = 0.3, color= "#812527") +
   coord_equal() +
   theme_blankcanvas(margin_cm = 0) +
-  theme(plot.background = element_rect(fill = "#D0D0B6"))
+  theme(plot.background = element_rect(fill = "#E8D0D1"))
 
 # p
 
 # Save plot
-ggsave("./images/oxystele01#009CCD_1.png", p, 
+ggsave("./images/oxystele01#812527_1.png", p, 
 	   width = 40, height = 40, units = "cm", dpi= 300)
 
 #-----------------------------------------------------------------------------
@@ -71,10 +71,10 @@ p <- ggplot() +
 	geom_point(aes(y, z), df3, size = 0.03, alpha = 0.03) +
 	geom_path( aes(y, z), df3, size = 0.03, alpha = 0.03) +
 	facet_wrap(~id, nrow = 2, scales = "free") +
-	theme(plot.background = element_rect(fill = "#F0EEC897")) +
+	theme(plot.background = element_rect(fill = "#E8D0D1")) +
 	theme_blankcanvas(margin_cm = 0.5)
 p
 
-ggsave("./images/oxystele01oxystele01#009CCD_3.png", 
+ggsave("./images/oxystele01#812527_3.png", 
 	   width = 80, height = 80, units = "cm", dpi= 300)
 
