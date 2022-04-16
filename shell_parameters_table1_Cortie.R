@@ -1,0 +1,381 @@
+# Set parameters (see mathart::mollusc() documentation for details)
+# The shell math model is from the paper by M.B. Cortie (1989)
+# https://www.researchgate.net/publication/238757952_Models_for_mollusc_shell_shape
+# Table 1. Parameter values.
+# 
+# Shell shell_1531.R
+# n_s <- 650L
+# n_t <- 2000L
+# n <- 1000
+# alpha <- 82.6
+# beta <- 1.515
+# phi <- 14.3
+# mu <- 0
+# Omega <- 0
+# s_min <- -193.8
+# s_max <- 69.4
+# A <- 7.031
+# a <- 2.377
+# b <- 6.42
+# P <- 0
+# W_1 <- 1
+# W_2 <- 1
+# N <- 0
+# L <- 0
+# D <- 1
+# theta_start <- 0
+# theta_end <- 10*pi
+
+# Natalina cafra
+n_s <- 650L
+n_t <- 2000L
+n <- 1000
+alpha <- 80
+beta <- -40
+phi <- 55
+mu <- 10
+Omega <- 30
+s_min <- -270
+s_max <- 62
+A <- 25
+a <- 12
+b <- 16
+P <- 2
+W_1 <- 1
+W_2 <- 1
+N <- 0
+L <- 0
+D <- 1
+theta_start <- 0
+theta_end <- 10*pi
+
+# Lyria
+n_s <- 650L
+n_t <- 2000L
+n <- 1000
+alpha <- 83.9
+beta <- -19
+phi <- 45
+mu <- 0
+Omega <- 0
+s_min <- -51
+s_max <- 9
+A <- 50
+a <- 40
+b <- 14
+P <- 0
+W_1 <- 6
+W_2 <- 27
+N <- 8
+L <- 4
+D <- 1
+theta_start <- 0
+theta_end <- 14.2*pi
+
+# Turritela
+n_s <- 650L
+n_t <- 2000L
+n <- 1000
+alpha <- 88.9
+beta <- 4
+phi <- 55
+mu <- 0
+Omega <- 0
+s_min <- -267
+s_max <- 39
+A <- 22.2
+a <- 1.3
+b <- 1.5
+P <- 0
+W_1 <- 1
+W_2 <- 1
+N <- 0
+L <- 0
+D <- 1
+theta_start <- 0
+theta_end <- 30*pi
+
+# Achatina
+n_s <- 650L
+n_t <- 2000L
+n <- 1000
+alpha <- 86.6
+beta <- 8.5
+phi <- 0
+mu <- 0
+Omega <- 0
+s_min <- -110
+s_max <- 65
+A <- 109
+a <- 32
+b <- 48
+P <- 0
+W_1 <- 1
+W_2 <- 1
+N <- 0
+L <- 0
+D <- 1
+theta_start <- 0
+theta_end <- 18*pi
+
+# Epitonium
+n_s <- 650L
+n_t <- 2000L
+n <- 1000
+alpha <- 86.9
+beta <- 9
+phi <- 81
+mu <- 0
+Omega <- 0
+s_min <- -270
+s_max <- 20
+A <- 9.5
+a <- 2.1
+b <- 1.6
+P <- -60
+W_1 <- 200
+W_2 <- 20
+N <- 8.3
+L <- 1.3
+D <- 1
+theta_start <- 0
+theta_end <- 18*pi
+
+# Oxystele
+n_s <- 650L
+n_t <- 2000L
+n <- 1000
+alpha <- 84.9
+beta <- 7
+phi <- -36
+mu <- 0
+Omega <- 0
+s_min <- -70
+s_max <- 70
+A <- 47
+a <- 40
+b <- 19
+P <- 0
+W_1 <- 1
+W_2 <- 1
+N <- 0
+L <- 0
+D <- 1
+theta_start <- 0
+theta_end <- 18*pi
+
+# Terebra
+n_s <- 650L
+n_t <- 2000L
+n <- 1000
+alpha <- 88.5
+beta <- -2
+phi <- 25
+mu <- 0
+Omega <- 0
+s_min <- -107
+s_max <- -27
+A <- 6.6
+a <- 1
+b <- 2
+P <- 0
+W_1 <- 1
+W_2 <- 1
+N <- 0
+L <- 0
+D <- 1
+theta_start <- 0
+theta_end <- 30*pi
+
+# Conus
+n_s <- 650L
+n_t <- 2000L
+n <- 1000
+alpha <- 87
+beta <- 7
+phi <- 78
+mu <- 0
+Omega <- 0
+s_min <- -180
+s_max <- 2
+A <- 7
+a <- 4.3
+b <- 1.0
+P <- 0
+W_1 <- 1
+W_2 <- 1
+N <- 0
+L <- 0
+D <- 1
+theta_start <- 0
+theta_end <- 30*pi
+
+# Tonna
+n_s <- 650L
+n_t <- 2000L
+n <- 1000
+alpha <- 82.4
+beta <- 0
+phi <- 0
+mu <- 10
+Omega <- 0
+s_min <- -90
+s_max <- 60
+A <- 70
+a <- 58
+b <- 50
+P <- 0
+W_1 <- 1
+W_2 <- 1
+N <- 0
+L <- 0
+D <- 1
+theta_start <- 0
+theta_end <- 10*pi
+
+# Diodora
+n_s <- 650L
+n_t <- 2000L
+n <- 1000
+alpha <- 1
+beta <- 88
+phi <- 5
+mu <- 3
+Omega <- -45
+s_min <- -180
+s_max <- 180
+A <- 5
+a <- 9
+b <- 7
+P <- 0
+W_1 <- 1
+W_2 <- 1
+N <- 0
+L <- 0
+D <- 1
+theta_start <- 0.006*pi
+theta_end <- 0.02*pi
+
+# Patella
+n_s <- 650L
+n_t <- 2000L
+n <- 1000
+alpha <- 5
+beta <- 90
+phi <- 0
+mu <- 0
+Omega <- -40
+s_min <- -180
+s_max <- 180
+A <- 0.297
+a <- 0.927
+b <- 0.741
+P <- 0
+W_1 <- 1
+W_2 <- 1
+N <- 0
+L <- 0
+D <- 1
+theta_start <- 0
+theta_end <- 0.22*pi
+
+# Helcion
+n_s <- 650L
+n_t <- 2000L
+n <- 1000
+alpha <- 18
+beta <- 90
+phi <- 0
+mu <- 0
+Omega <- -40
+s_min <- -180
+s_max <- 180
+A <- 450
+a <- 400
+b <- 310
+P <- 0
+W_1 <- 1
+W_2 <- 1
+N <- 0
+L <- 0
+D <- 1
+theta_start <- 0
+theta_end <- 0.22*pi
+
+# Nautilus
+n_s <- 650L
+n_t <- 2000L
+n <- 1000
+alpha <- 80
+beta <- 90
+phi <- 0
+mu <- 0
+Omega <- 0
+s_min <- -163
+s_max <- 163
+A <- 2
+a <- 2
+b <- 1.5
+P <- 0
+W_1 <- 1
+W_2 <- 1
+N <- 0
+L <- 0
+D <- 1
+theta_start <- 0
+theta_end <- 12*pi
+
+# Codakia
+n_s <- 650L
+n_t <- 2000L
+n <- 1000
+alpha <- 37
+beta <- 90
+phi <- 0
+mu <- 0
+Omega <- 0
+s_min <- -180
+s_max <- 180
+A <- 10500
+a <- 10000
+b <- 10500
+P <- 0
+W_1 <- 1
+W_2 <- 1
+N <- 0
+L <- 0
+D <- 1
+theta_start <- 0
+theta_end <- 0*pi
+
+# Dentalium
+n_s <- 650L
+n_t <- 2000L
+n <- 1000
+alpha <- 30
+beta <- 85
+phi <- 5
+mu <- 0
+Omega <- -40
+s_min <- -180
+s_max <- 180
+A <- 300
+a <- 15
+b <- 17
+P <- 0
+W_1 <- 1
+W_2 <- 1
+N <- 0
+L <- 0
+D <- 1
+theta_start <- -0.10*pi
+theta_end <- 0.20*pi
+
+
+
+
+
+
+
+
+
