@@ -12,7 +12,6 @@ library(Rcpp)
 # Parameters are in file shell_parameters_table1_Cortie.R
 
 #-----------------------------------------------------------------------------
-Sys.time()
 TIME <- Sys.time()
 #-----------------------------------------------------------------------------
 
@@ -76,7 +75,7 @@ p <- ggplot() +
 	geom_point(aes(y, z), df3, size = 0.03, alpha = 0.03) +
 	geom_path( aes(y, z), df3, size = 0.03, alpha = 0.03) +
 	facet_wrap(~id, nrow = 2, scales = "free") +
-	theme(plot.background = element_rect(fill = "#E8D0D1")) +
+	theme(plot.background = element_rect(fill = "#FFD1D1")) +
 	theme_blankcanvas(margin_cm = 0.5)
 p
 
@@ -84,6 +83,5 @@ ggsave("./images/lyria02##662E2E_3.png",
 	   width = 80, height = 80, units = "cm", dpi= 300)
 
 #-----------------------------------------------------------------------------
-Sys.time()
 Sys.time() - TIME
 #-----------------------------------------------------------------------------
