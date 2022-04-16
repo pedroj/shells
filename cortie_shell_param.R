@@ -11,25 +11,25 @@ library(Rcpp)
 # Set parameters (see mathart::mollusc() documentation for details)
 # Parameters are in file shell_parameters_table1_Cortie.R
 
-# Epitonium
+# Oxystele
 n_s <- 650L
 n_t <- 2000L
 n <- 1000
-alpha <- 86.9
-beta <- 9
-phi <- 81
+alpha <- 84.9
+beta <- 7
+phi <- -36
 mu <- 0
 Omega <- 0
-s_min <- -270
-s_max <- 20
-A <- 9.5
-a <- 2.1
-b <- 1.6
-P <- -60
-W_1 <- 200
-W_2 <- 20
-N <- 8.3
-L <- 1.3
+s_min <- -70
+s_max <- 70
+A <- 47
+a <- 40
+b <- 19
+P <- 0
+W_1 <- 1
+W_2 <- 1
+N <- 0
+L <- 0
 D <- 1
 theta_start <- 0
 theta_end <- 18*pi
@@ -44,16 +44,16 @@ df <- mollusc(n_s = n_s, n_t = n_t,
 
 # Create plot
 p <- ggplot() +
-  geom_point(aes(x, z), df, size = 0.03, alpha = 0.03, color= "#A39F62") +
-  geom_path(aes(x, z), df, size = 0.03, alpha = 0.03, color= "#A39F62") +
+  geom_point(aes(x, z), df, size = 0.03, alpha = 0.3, color= "#009CCD") +
+  geom_path(aes(x, z), df, size = 0.03, alpha = 0.3, color= "#009CCD") +
   coord_equal() +
   theme_blankcanvas(margin_cm = 0) +
-  theme(plot.background = element_rect(fill = "#F0EEC897"))
+  theme(plot.background = element_rect(fill = "#D0D0B6"))
 
-p
+# p
 
 # Save plot
-ggsave("epitonium02#A39F62.pdf", p, 
+ggsave("./images/oxystele01#009CCD_1.png", p, 
 	   width = 40, height = 40, units = "cm", dpi= 300)
 
 #-----------------------------------------------------------------------------
@@ -75,6 +75,6 @@ p <- ggplot() +
 	theme_blankcanvas(margin_cm = 0.5)
 p
 
-ggsave("epitonium02.pdf", 
+ggsave("./images/oxystele01oxystele01#009CCD_3.png", 
 	   width = 80, height = 80, units = "cm", dpi= 300)
 
