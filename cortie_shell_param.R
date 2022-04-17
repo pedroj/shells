@@ -46,19 +46,26 @@ df <- mollusc(n_s = n_s, n_t = n_t,
 			  N = N, L = L, D = D,
               theta_start = theta_start, theta_end = theta_end)
 
+#-----------------------------------------------------------------------------
 # Create plot
+sp=   "lyria"
+col1= "#662E2E"  # Shell color.
+col2= "#FFD1D1"  # Background color.
+outfile= paste("./images/", sp, col1, ".png", sep="")
+outfile2= paste("./images/", sp, col1, "_3", ".png", sep="")
+#-----------------------------------------------------------------------------
+
 p <- ggplot() +
-  geom_point(aes(x, z), df, size = 0.03, alpha = 0.3, color= "#662E2E") +
-  geom_path(aes(x, z), df, size = 0.03, alpha = 0.3, color= "#662E2E") +
+  geom_point(aes(x, z), df, size = 0.03, alpha = 0.3, color= col1) +
+  geom_path(aes(x, z), df, size = 0.03, alpha = 0.3, color= col1) +
   coord_equal() +
   theme_blankcanvas(margin_cm = 0) +
-  theme(plot.background = element_rect(fill = "#FFD1D1"))
+  theme(plot.background = element_rect(fill = col2))
 
 # p
 
 # Save plot
-ggsave("./images/lyria02##662E2E_1.png", p, 
-	   width = 40, height = 40, units = "cm", dpi= 300)
+ggsave(outfile, p, width = 40, height = 40, units = "cm", dpi= 300)
 
 #-----------------------------------------------------------------------------
 # Plot the three X, Y, Z views of the shell
@@ -68,19 +75,18 @@ df2 <- df %>% mutate(id = 2)
 df3 <- df %>% mutate(id = 3)
 
 p <- ggplot() +
-	geom_point(aes(x, y), df1, size = 0.03, alpha = 0.03) +
-	geom_path( aes(x, y), df1, size = 0.03, alpha = 0.03) +
-	geom_point(aes(x, z), df2, size = 0.03, alpha = 0.03) +
-	geom_path( aes(x, z), df2, size = 0.03, alpha = 0.03) +
-	geom_point(aes(y, z), df3, size = 0.03, alpha = 0.03) +
-	geom_path( aes(y, z), df3, size = 0.03, alpha = 0.03) +
+	geom_point(aes(x, y), df1, size = 0.03, alpha = 0.03, color= col1) +
+	geom_path( aes(x, y), df1, size = 0.03, alpha = 0.03, color= col1) +
+	geom_point(aes(x, z), df2, size = 0.03, alpha = 0.03, color= col1) +
+	geom_path( aes(x, z), df2, size = 0.03, alpha = 0.03, color= col1) +
+	geom_point(aes(y, z), df3, size = 0.03, alpha = 0.03, color= col1) +
+	geom_path( aes(y, z), df3, size = 0.03, alpha = 0.03, color= col1) +
 	facet_wrap(~id, nrow = 2, scales = "free") +
-	theme(plot.background = element_rect(fill = "#FFD1D1")) +
-	theme_blankcanvas(margin_cm = 0.5)
-p
+	theme_blankcanvas(margin_cm = 0.5)	 +
+    theme(plot.background = element_rect(fill = col2))
+#p
 
-ggsave("./images/lyria02##662E2E_3.png", 
-	   width = 80, height = 80, units = "cm", dpi= 300)
+ggsave(outfile2, width = 80, height = 80, units = "cm", dpi= 300)
 
 #-----------------------------------------------------------------------------
 Sys.time() - TIME
