@@ -40,10 +40,10 @@ N <- 8
 L <- 4
 D <- 1
 theta_start <- 0
-theta_end <- 14.2*pi
+theta_end <- 14.2 * pi
 
 # Generate data
-df <- mollusc(n_s = n_s, n_t = n_t,
+df <- mathart::mollusc(n_s = n_s, n_t = n_t,
               alpha = alpha, beta = beta, phi = phi, mu = mu, 
 			  Omega = Omega, s_min = s_min, s_max = s_max,
               A = A, a = a, b = b, P = P, W_1 = W_1, W_2 = W_2, 
