@@ -8,6 +8,10 @@ library(tidyverse)
 library(ggforce)
 library(Rcpp)
 
+# Input parameters dataset.
+param<- read.table("shell_parameters_table1_Cortie.txt", 
+                   header=T, dec= ",", sep="\t")
+
 # Set parameters (see mathart::mollusc() documentation for details)
 # Parameters are in file shell_parameters_table1_Cortie.R
 
@@ -18,7 +22,7 @@ TIME <- Sys.time()
 # Lyria
 n_s <- 650L
 n_t <- 2000L
-n <- 1000
+n <- 5000
 alpha <- 83.9
 beta <- -19
 phi <- 45
@@ -56,8 +60,8 @@ outfile2= paste("./images/", sp, col1, "_3", ".png", sep="")
 #-----------------------------------------------------------------------------
 
 p <- ggplot() +
-  geom_point(aes(x, z), df, size = 0.03, alpha = 0.3, color= col1) +
-  geom_path(aes(x, z), df, size = 0.03, alpha = 0.3, color= col1) +
+  geom_point(aes(x, z), df, size = 0.03, alpha = 0.03, color= col1) +
+  geom_path(aes(x, z), df, size = 0.03, alpha = 0.03, color= col1) +
   coord_equal() +
   theme_blankcanvas(margin_cm = 0) +
   theme(plot.background = element_rect(fill = col2))
