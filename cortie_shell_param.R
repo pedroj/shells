@@ -19,28 +19,28 @@ param<- read.table("shell_parameters_table1_Cortie.txt",
 TIME <- Sys.time()
 #-----------------------------------------------------------------------------
 
-# Lyria
-n_s <- 650L
-n_t <- 2000L
-n <- 5000
-alpha <- 83.9
-beta <- -19
-phi <- 45
+# Random
+n_s <- 1300L
+n_t <- 4000L
+n <- 1000
+alpha <- 70
+beta <- 35
+phi <- 68
 mu <- 0
-Omega <- 0
-s_min <- -51
-s_max <- 9
-A <- 50
-a <- 40
-b <- 14
+Omega <- 10
+s_min <- -180
+s_max <- 2
+A <- 7
+a <- 4.3
+b <- 1.0
 P <- 0
-W_1 <- 6
-W_2 <- 27
-N <- 8
-L <- 4
+W_1 <- 1
+W_2 <- 1
+N <- 0
+L <- 0
 D <- 1
 theta_start <- 0
-theta_end <- 14.2 * pi
+theta_end <- 15*pi
 
 # Generate data
 df <- mathart::mollusc(n_s = n_s, n_t = n_t,
@@ -52,7 +52,7 @@ df <- mathart::mollusc(n_s = n_s, n_t = n_t,
 
 #-----------------------------------------------------------------------------
 # Create plot
-sp=   "lyria"
+sp=   "random03"
 col1= "#662E2E"  # Shell color.
 col2= "#FFD1D1"  # Background color.
 outfile= paste("./images/", sp, col1, ".png", sep="")
@@ -66,10 +66,10 @@ p <- ggplot() +
   theme_blankcanvas(margin_cm = 0) +
   theme(plot.background = element_rect(fill = col2))
 
-# p
+p
 
 # Save plot
-ggsave(outfile, p, width = 40, height = 40, units = "cm", dpi= 300)
+ggsave(outfile, p, width = 50, height = 50, units = "cm", dpi= 300)
 
 #-----------------------------------------------------------------------------
 # Plot the three X, Y, Z views of the shell
@@ -88,9 +88,9 @@ p <- ggplot() +
 	facet_wrap(~id, nrow = 2, scales = "free") +
 	theme_blankcanvas(margin_cm = 0.5)	 +
     theme(plot.background = element_rect(fill = col2))
-#p
+p
 
-ggsave(outfile2, width = 80, height = 80, units = "cm", dpi= 300)
+ggsave(outfile2, width = 90, height = 90, units = "cm", dpi= 300)
 
 #-----------------------------------------------------------------------------
 Sys.time() - TIME
