@@ -49,20 +49,20 @@ TIME <- Sys.time()
 # # theta_end: Not important for self-similar shells, except very small or
 #           large values can cause computational problems
 # ----------------------------------------------------------------------------
-# Turritela
-n_s <- 1300L
-n_t <- 4000L
+# Achatina
+n_s <- 650L
+n_t <- 2000L
 n <- 1000
-alpha <- 89.9
-beta <- 5
-phi <- 55
+alpha <- 86.6
+beta <- 8.5
+phi <- 0
 mu <- 0
 Omega <- 0
-s_min <- -267
-s_max <- 39
-A <- 22.2
-a <- 1.3
-b <- 1.5
+s_min <- -110
+s_max <- 65
+A <- 109
+a <- 32
+b <- 48
 P <- 0
 W_1 <- 1
 W_2 <- 1
@@ -70,7 +70,8 @@ N <- 0
 L <- 0
 D <- 1
 theta_start <- 0
-theta_end <- 30*pi
+theta_end <- 18*pi
+
 
 # Generate data
 df <- mathart::mollusc(n_s = n_s, n_t = n_t,
@@ -82,9 +83,9 @@ df <- mathart::mollusc(n_s = n_s, n_t = n_t,
 
 #-----------------------------------------------------------------------------
 # Create plot
-sp=   "turritela_05"
-col1= "#812527"  # Shell color.
-col2= "#fae6b96c"  # Background color.
+sp=   "achatina_05"
+col1= "#FF2929"  # Shell color.
+col2= "#F7D9D9"  # Background color.
 outfile= paste("./images/", sp, col1, ".png", sep="")
 outfile2= paste("./images/", sp, col1, "_3", ".png", sep="")
 #-----------------------------------------------------------------------------
