@@ -16,8 +16,6 @@ library(Rcpp)
 # Parameters are in file shell_parameters_table1_Cortie.R
 
 #-----------------------------------------------------------------------------
-TIME <- Sys.time()
-#-----------------------------------------------------------------------------
 # Description:
 #      Generates data for plotting mollusc shells and stores it in a data
 #      frame with (x, y, z) coordinates. The shell model is described in
@@ -49,18 +47,21 @@ TIME <- Sys.time()
 # # theta_end: Not important for self-similar shells, except very small or
 #           large values can cause computational problems
 # ----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+TIME <- Sys.time()
+#-----------------------------------------------------------------------------
 # Oxystele
 n_s <- 650L
 n_t <- 2000L
 n <- 1000
-alpha <- 84.9
+alpha <- 80
 beta <- 7
-phi <- -36
+phi <- -20
 mu <- 0
 Omega <- 0
 s_min <- -70
 s_max <- 70
-A <- 47
+A <- 45
 a <- 40
 b <- 19
 P <- 0
@@ -82,7 +83,7 @@ df <- mathart::mollusc(n_s = n_s, n_t = n_t,
 
 #-----------------------------------------------------------------------------
 # Create plot
-sp=   "oxystele_03"
+sp=   "oxystele_05"
 col1= "#048006"  # Shell color.
 col2= "#EBFFEBC3"  # Background color.
 outfile= paste("./images/", sp, col1, ".png", sep="")
