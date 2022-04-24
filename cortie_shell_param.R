@@ -53,9 +53,9 @@ TIME <- Sys.time()
 n_s <- 650L
 n_t <- 2000L
 n <- 1000
-alpha <- 86.6
-beta <- 8.5
-phi <- 0
+alpha <- 88
+beta <- 4.5
+phi <- 25
 mu <- 0
 Omega <- 0
 s_min <- -110
@@ -83,9 +83,9 @@ df <- mathart::mollusc(n_s = n_s, n_t = n_t,
 
 #-----------------------------------------------------------------------------
 # Create plot
-sp=   "achatina_07"
-col1= "#6F0AA6"  # Shell color.
-col2= "#DFDFF5"  # Background color.
+sp=   "achatina_09"
+col1= "#F7F7D2"  # Shell color.
+col2= "#59EBE941"  # Background color.
 outfile= paste("./images/", sp, col1, ".png", sep="")
 outfile2= paste("./images/", sp, col1, "_3", ".png", sep="")
 #-----------------------------------------------------------------------------
