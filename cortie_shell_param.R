@@ -83,9 +83,9 @@ df <- mathart::mollusc(n_s = n_s, n_t = n_t,
 
 #-----------------------------------------------------------------------------
 # Create plot
-sp=   "achatina_05"
-col1= "#FF2929"  # Shell color.
-col2= "#F7D9D9"  # Background color.
+sp=   "achatina_06"
+col1= "#252AC4"  # Shell color.
+col2= "#DFDFF5"  # Background color.
 outfile= paste("./images/", sp, col1, ".png", sep="")
 outfile2= paste("./images/", sp, col1, "_3", ".png", sep="")
 #-----------------------------------------------------------------------------
