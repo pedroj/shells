@@ -37,34 +37,39 @@
 # # theta_end: Not important for self-similar shells, except very small or
 #           large values can cause computational problems
 # ----------------------------------------------------------------------------
+# Load packagess
+library(mathart) # devtools::install_github("marcusvolz/mathart)
+library(tidyverse)
+library(ggforce)
+library(Rcpp)
 #------------------------------------------------------------------------------
 get.shell(
-	# Conus
-	n_s = 1650L,
-	n_t = 3000L,
+	# Shell shell_1531.R
+	n_s = 650L,
+	n_t = 2000L,
 	n = 1000,
-	alpha = 85,
-	beta = 10,
-	phi = 72, #68,
-	mu = 0,
-	Omega = 12,
-	s_min = -180,
-	s_max = 2,
-	A = 7,
-	a = 4.3,
-	b = 1.0,
+	alpha = 99.6,
+	beta = 0.515,
+	phi = 1.3,
+	mu = 5,
+	Omega = 2,
+	s_min = -193.8,
+	s_max = 69.4,
+	A = 7.031,
+	a = 2.377,
+	b = 6.42,
 	P = 0,
-	W_1 = 1,
-	W_2 = 1,
+	W_1 = 0,
+	W_2 = 0,
 	N = 0,
 	L = 0,
 	D = 1,
 	theta_start = 0,
-	theta_end = 30*pi,
+	theta_end = 10*pi,
     #-------------------------------------------
-		  sp= "conus_00",
-		  col1= "#E08207",   # Shell color.
-		  col2= "#4F4F4DF0")    # Bckgnd color.
+		  sp= "random_1531_#01",
+		  col1= "#FFEE00",   # Shell color.
+		  col2= "#1D1F5E")    # Bckgnd color.
 	#-------------------------------------------
 #------------------------------------------------------------------------------
 
