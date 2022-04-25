@@ -371,11 +371,3 @@ D = 1,
 theta_start = -0.10*pi,
 theta_end = 0.20*pi,
 
-
-
-
-
-
-
-
-
