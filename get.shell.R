@@ -44,42 +44,43 @@ library(ggforce)
 library(Rcpp)
 #------------------------------------------------------------------------------
 get.shell(
-	# Achatina
-	n_s = 650L,
-	n_t = 2000L,
+	# Shell shell_1531
+	n_s = 1000L,
+	n_t = 4000L,
 	n = 1000,
-	alpha = 86.6,
-	beta = 9.5,
-	phi = 0,
-	mu = 2,
+	alpha = 80,
+	beta = 40,
+	phi = 55,
+	mu = 30,
 	Omega = 10,
-	s_min = -110,
-	s_max = 65,
-	A = 139,
-	a = 192,
-	b = 58,
-	P = 0,
+	s_min = -270,
+	s_max = 62,
+	A = 25,
+	a = 12,
+	b = 16,
+	P = 2,
 	W_1 = 1,
 	W_2 = 1,
 	N = 0,
 	L = 0,
 	D = 1,
 	theta_start = 0,
-	theta_end = 18*pi,
+	theta_end = 10*pi,
+	
     #-------------------------------------------
-		  sp= "achatina_#11",
-		  col1= "#FFEE00",   # Shell color.
-		  col2= "#1D1F5E")    # Bckgnd color.
+		  sp= "mollusc_2",
+		  col1= "#FFF5F5",   # Shell color. 
+		  col2= "#5C0000")    # Bckgnd color.
 	#-------------------------------------------
 #------------------------------------------------------------------------------
-
-
-
 
 #-----------------------------------------------------------------------------
 # Function to generate shells.
 #-----------------------------------------------------------------------------
-get.shell <- function(n_s= 650L, n_t= 2000L,n= 1000, alpha, beta, phi, mu, Omega, s_min, s_max, A, a, b, P, W_1= 1, W_2= 1, N= 0, L= 0, D= 1, theta_start= -Inf, theta_end= 8*pi, x, z, sp, col1, col2, myplot= 0) {
+get.shell <- function(n_s= 650L, n_t= 2000L,n= 1000, alpha, beta, phi, mu, 
+					  Omega, s_min, s_max, A, a, b, P, W_1= 1, W_2= 1, N= 0, 
+					  L= 0, D= 1, theta_start= -Inf, theta_end= 8*pi, x, z, 
+					  sp, col1, col2, myplot= 0) {
 	#-----------------------------------------------------------------------------
 	TIME <- Sys.time()
 	#-----------------------------------------------------------------------------
@@ -113,5 +114,20 @@ get.shell <- function(n_s= 650L, n_t= 2000L,n= 1000, alpha, beta, phi, mu, Omega
 	#-----------------------------------------------------------------------------
 	Sys.time() - TIME
 	#-----------------------------------------------------------------------------
+}
+
+theme_blankcanvas <- function(bg_col = "transparent", margin_cm = 2.5) {
+	theme(axis.title = element_blank(),
+		  axis.text = element_blank(),
+		  axis.ticks = element_blank(),
+		  axis.line = element_blank(),
+		  legend.position = "none",
+		  panel.background = element_rect(fill = bg_col, colour = bg_col),
+		  panel.border = element_blank(),
+		  panel.grid = element_blank(),
+		  plot.background = element_rect(fill = bg_col, colour = bg_col),
+		  plot.margin = unit(rep(margin_cm, 4), "cm"), # top, right, bottom, left
+		  strip.background = element_blank(),
+		  strip.text = element_blank())
 }
 
