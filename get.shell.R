@@ -44,30 +44,30 @@ library(ggforce)
 library(Rcpp)
 #------------------------------------------------------------------------------
 get.shell(
-	# Shell shell_1531.R
+	# Achatina
 	n_s = 650L,
 	n_t = 2000L,
 	n = 1000,
-	alpha = 99.6,
-	beta = 0.515,
-	phi = 1.3,
-	mu = 5,
-	Omega = 2,
-	s_min = -193.8,
-	s_max = 69.4,
-	A = 7.031,
-	a = 2.377,
-	b = 6.42,
+	alpha = 86.6,
+	beta = 9.5,
+	phi = 0,
+	mu = 2,
+	Omega = 10,
+	s_min = -110,
+	s_max = 65,
+	A = 139,
+	a = 192,
+	b = 58,
 	P = 0,
-	W_1 = 0,
-	W_2 = 0,
+	W_1 = 1,
+	W_2 = 1,
 	N = 0,
 	L = 0,
 	D = 1,
 	theta_start = 0,
-	theta_end = 10*pi,
+	theta_end = 18*pi,
     #-------------------------------------------
-		  sp= "random_1531_#01",
+		  sp= "achatina_#11",
 		  col1= "#FFEE00",   # Shell color.
 		  col2= "#1D1F5E")    # Bckgnd color.
 	#-------------------------------------------

@@ -4,27 +4,27 @@
 # Table 1. Parameter values.
 # 
 # Shell shell_1531.R
-# n_s = 650L
-# n_t = 2000L
-# n = 1000
-# alpha = 82.6
-# beta = 1.515
-# phi = 14.3
-# mu = 0
-# Omega = 0
-# s_min = -193.8
-# s_max = 69.4
-# A = 7.031
-# a = 2.377
-# b = 6.42
-# P = 0
-# W_1 = 1
-# W_2 = 1
-# N = 0
-# L = 0
-# D = 1
-# theta_start = 0
-# theta_end = 10*pi
+# n_s = 650L,
+# n_t = 2000L,
+# n = 1000,
+# alpha = 82.6,
+# beta = 1.515,
+# phi = 14.3,
+# mu = 0,
+# Omega = 0,
+# s_min = -193.8,
+# s_max = 69.4,
+# A = 7.031,
+# a = 2.377,
+# b = 6.42,
+# P = 0,
+# W_1 = 1,
+# W_2 = 1,
+# N = 0,
+# L = 0,
+# D = 1,
+# theta_start = 0,
+# theta_end = 10*pi,
 
 # Natalina cafra
 n_s = 650L,
@@ -72,7 +72,7 @@ D = 1,
 theta_start = 0,
 theta_end = 14.2*pi,
 
-# Turritela
+# Turritella
 n_s = 650L,
 n_t = 2000L,
 n = 1000,
