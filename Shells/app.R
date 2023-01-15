@@ -89,7 +89,7 @@ ui <- fluidPage(
     )
 )
 
-# Define server logic required to draw a histogram
+# Define server logic required to draw the shells
 server <- function(input, output) {
 
     output$distPlot <- renderPlot({
