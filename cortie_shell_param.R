@@ -50,28 +50,28 @@ library(Rcpp)
 #-----------------------------------------------------------------------------
 TIME <- Sys.time()
 #-----------------------------------------------------------------------------
-# Oxystele
-n_s <- 650L
-n_t <- 2000L
-n <- 1000
-alpha <- 80
-beta <- 7
-phi <- -20
-mu <- 0
-Omega <- 0
-s_min <- -70
-s_max <- 70
-A <- 45
-a <- 40
-b <- 19
-P <- 0
-W_1 <- 1
-W_2 <- 1
-N <- 0
-L <- 0
-D <- 1
-theta_start <- 0
-theta_end <- 18*pi
+# Conus
+n_s = 650L
+n_t = 2000L
+n = 1000
+alpha = 87
+beta = 7
+phi = 78
+mu = 0
+Omega = 0
+s_min = -180
+s_max = 2
+A = 7
+a = 4.3
+b = 1.0
+P = 0
+W_1 = 1
+W_2 = 1
+N = 0
+L = 0
+D = 1
+theta_start = 0
+theta_end = 30*pi
 
 # Generate data
 df <- mathart::mollusc(n_s = n_s, n_t = n_t,
@@ -83,8 +83,8 @@ df <- mathart::mollusc(n_s = n_s, n_t = n_t,
 
 #-----------------------------------------------------------------------------
 # Create plot
-sp=   "oxystele_05"
-col1= "#048006"  # Shell color.
+sp=   "conus_00"
+col1= "#000000ff"  # Shell color.
 col2= "#EBFFEBC3"  # Background color.
 outfile= paste("./images/", sp, col1, ".png", sep="")
 outfile2= paste("./images/", sp, col1, "_3", ".png", sep="")
@@ -124,7 +124,7 @@ p <- ggplot() +
     theme(plot.background = element_rect(fill = col2))
 # p
 
-ggsave(outfile2, width = 90, height = 90, units = "cm", dpi= 300)
+ggsave(outfile2, width = 90, height = 110, units = "cm", dpi= 300)
 
 #-----------------------------------------------------------------------------
 Sys.time() - TIME
