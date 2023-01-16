@@ -154,9 +154,9 @@ ui <- fluidPage(
         	   			 "theta_end: Not important for self-similar shells, 
         	   			  except very small or large values can cause 
         	   			  computational problems:",
-    		   			min = 15.708,
-    		   			max = 282.74,
-    		   			value = 94.248),
+    		   			min = pi,
+    		   			max = 90*pi,
+    		   			value = 30*pi),
         )),
         # Show a plot of the generated model
         mainPanel(
@@ -207,9 +207,9 @@ server <- function(input, output) {
 		  strip.text = element_blank())
     }
 
-	ggplot() +
+	distPlot<- ggplot() +
 		geom_point(aes(x, z), df, size = 0.03, alpha = 0.03, color= col1) +
-		geom_path(aes(x, z), df, size = 0.03, alpha = 0.03, color= col1) +
+		geom_path(aes(x, z), df, linewidth = 0.03, alpha = 0.03, color= col1) +
 		coord_equal() +
 		theme_blankcanvas(margin_cm = 0) +
 		theme(plot.background = element_rect(fill = col2))

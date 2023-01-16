@@ -76,34 +76,36 @@ library(Rcpp)
 #           large values can cause computational problems
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
+TIME <- Sys.time()
 get.shell(
-	# lyria
+	# Tonna
 	n_s = 650L,
 	n_t = 2000L,
 	n = 1000,
-	alpha = 83.9,
-	beta = -19,
-	phi = 45,
-	mu = 0,
+	alpha = 85,
+	beta = 7,
+	phi = 12,
+	mu = 20,
 	Omega = 0,
-	s_min = -51,
-	s_max = 9,
-	A = 50,
-	a = 40,
-	b = 14,
+	s_min = -90,
+	s_max = 60,
+	A = 70,
+	a = 58,
+	b = 50,
 	P = 0,
-	W_1 = 6,
-	W_2 = 27,
-	N = 8,
-	L = 4,
+	W_1 = 1,
+	W_2 = 1,
+	N = 0,
+	L = 0,
 	D = 1,
 	theta_start = 0,
-	theta_end = 14.2*pi,
+	theta_end = 10*pi,
 	#-------------------------------------------
-		  sp= "lyria010",
+		  sp= "tonna07",
 		  col1= "#000000", # Shell color. 
 		  col2= "#EAEBDA") # Bckgnd color.
 	#-------------------------------------------
+Sys.time() - TIME
 
 #------------------------------------------------------------------------------
 # Function to generate shells.
