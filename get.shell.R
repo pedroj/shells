@@ -38,6 +38,7 @@
 #           large values can cause computational problems
 #------------------------------------------------------------------------------
 # Load packages
+library(shiny)
 library(mathart) # devtools::install_github("marcusvolz/mathart)
 library(tidyverse)
 library(ggforce)

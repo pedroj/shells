@@ -191,6 +191,22 @@ server <- function(input, output) {
 	#outfile= paste("./images/", sp, col1, ".png", sep="")
 	#outfile2= paste("./images/", sp, col1, "_3", ".png", sep="")
 	#--------------------------------------------------------------------------
+	#
+	theme_blankcanvas <- function(bg_col = "transparent", margin_cm = 2.5) {
+	theme(axis.title = element_blank(),
+		  axis.text = element_blank(),
+		  axis.ticks = element_blank(),
+		  axis.line = element_blank(),
+		  legend.position = "none",
+		  panel.background = element_rect(fill = bg_col, colour = bg_col),
+		  panel.border = element_blank(),
+		  panel.grid = element_blank(),
+		  plot.background = element_rect(fill = bg_col, colour = bg_col),
+		  plot.margin = unit(rep(margin_cm, 4), "cm"), # top, right, bottom, left
+		  strip.background = element_blank(),
+		  strip.text = element_blank())
+    }
+
 	ggplot() +
 		geom_point(aes(x, z), df, size = 0.03, alpha = 0.03, color= col1) +
 		geom_path(aes(x, z), df, size = 0.03, alpha = 0.03, color= col1) +
