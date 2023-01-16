@@ -80,27 +80,125 @@ ui <- fluidPage(
     
     fluidRow(
     	column(3,
-    		   h4("Shell parameters"),
+    	#	   h4("Shell parameters"),
     		   sliderInput("alpha",
     		   			"Equiangular angle of spiral (degrees):",
     		   			min = 1,
     		   			max = 100,
-    		   			value = 80),
-    		   br(),
-    		   checkboxInput('jitter', 'Jitter'),
-    		   checkboxInput('smooth', 'Smooth')
+    		   			value = 80)
     	),
     	column(4, offset = 1,
-    		   selectInput('x', 'X', names(dataset)),
-    		   selectInput('y', 'Y', names(dataset), names(dataset)[[2]]),
-    		   selectInput('color', 'Color', c('None', names(dataset)))
+    		   sliderInput("beta",
+    		   			"Angle between z-axis and line from aperture 
+    		   			local origin to xyz origin (degrees):",
+    		   			min = 1,
+    		   			max = 100,
+    		   			value = 80),
     	),
     	column(4,
-    		   selectInput('facet_row', 'Facet Row', c(None='.', names(dataset))),
-    		   selectInput('facet_col', 'Facet Column', c(None='.', names(dataset)))
+    		   sliderInput("phi",
+    		   			"Tilt of ellipse major axis from horizontal 
+    		   			plane (degrees):",
+    		   			min = 1,
+    		   			max = 100,
+    		   			value = 80),
     	),
-    		)
+    	column(4,
+    		   sliderInput("mu",
+    		   			"Amount of "leaning over" of aperture (degrees):",
+    		   			min = 1,
+    		   			max = 100,
+    		   			value = 80),
+    	),
+    	column(4,
+    		   sliderInput("Omega",
+    		   			"Amount of azimuthal rotation of aperture (degrees):",
+    		   			min = 1,
+    		   			max = 100,
+    		   			value = 80),
+    	),
+    	column(4,
+    		   sliderInput("phi",
+    		   			"Tilt of ellipse major axis from horizontal 
+    		   			plane (degrees):",
+    		   			min = 1,
+    		   			max = 100,
+    		   			value = 80),
+    	),
+    	column(4,
+    		   sliderInput("phi",
+    		   			"Tilt of ellipse major axis from horizontal 
+    		   			plane (degrees):",
+    		   			min = 1,
+    		   			max = 100,
+    		   			value = 80),
+    	),
+    	column(4,
+    		   sliderInput("phi",
+    		   			"Tilt of ellipse major axis from horizontal 
+    		   			plane (degrees):",
+    		   			min = 1,
+    		   			max = 100,
+    		   			value = 80),
+    	),
+    	column(4,
+    		   sliderInput("phi",
+    		   			"Tilt of ellipse major axis from horizontal 
+    		   			plane (degrees):",
+    		   			min = 1,
+    		   			max = 100,
+    		   			value = 80),
+    	),
+    	column(4,
+    		   sliderInput("phi",
+    		   			"Tilt of ellipse major axis from horizontal 
+    		   			plane (degrees):",
+    		   			min = 1,
+    		   			max = 100,
+    		   			value = 80),
+    	),
+    	column(4,
+    		   sliderInput("phi",
+    		   			"Tilt of ellipse major axis from horizontal 
+    		   			plane (degrees):",
+    		   			min = 1,
+    		   			max = 100,
+    		   			value = 80),
+    	),
     )
+    )
+#-----------------------------------------------------------------------------
+# Description:
+#      Generates data for plotting mollusc shells and stores it in a data
+#      frame with (x, y, z) coordinates. The shell model is described in
+#      the paper "Models for mollusc shell shape" by M.B. Cortie (1989).
+# Arguments:
+#      n_s: Number of points to generate with respect to s
+#      n_t: Number of points to generate with respect to theta
+#    alpha: Equiangular angle of spiral (degrees)
+#     beta: Angle between z-axis and line from aperture local origin to
+#           xyz origin (degrees)
+#      phi: Tilt of ellipse major axis from horizontal plane (degrees)
+#       mu: Amount of "leaning over" of aperture (degrees)
+#    Omega: Amount of azimuthal rotation of aperture (degrees)
+#    s_min: Angle at which aperture-generating curve begins (degrees)
+#    s_max: Angle at which aperture-generating curve ends (degrees)
+#        A: Distance from main origin to local origin of aperture at
+#           theta=0
+#        a: Major radius of ellipse at theta=0
+#        b: Minor radius of ellipse at theta=0
+#        P: Position of nodule in terms of the angle, s (degrees)
+#      W_1: Width of nodule in s-direction (degrees)
+#      W_2: Width of nodule in theta-direction (degrees)
+# #        N: Number of nodules per whorl
+# #        L: Height of nodule at theta=0
+# #        D: Sense of coiling; 1=dextral, -1=sinistral
+# # theta_start: Required for shells such as Dentalium or Diodora, which
+#           grow at one end while dissolving at the other. In all other
+#           cases set to -Inf
+# # theta_end: Not important for self-similar shells, except very small or
+#           large values can cause computational problems
+# ----------------------------------------------------------------------------
 
 # Define server logic required to draw the shells
 server <- function(input, output) {
