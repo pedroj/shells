@@ -229,7 +229,7 @@ server <- function(input, output) {
     			coord_equal() +
     			theme_blankcanvas(margin_cm = 0) +
     			theme(plot.background = element_rect(fill = col2))
-    		#p
+    		distPlot
     		# Save plot
     		# ggsave(outfile, p, width = 60, height = 60, units = "cm", dpi= 300)
     		#--------------------------------------------------------------------------
