@@ -8,6 +8,10 @@
 #
 
 library(shiny)
+library(mathart) # devtools::install_github("marcusvolz/mathart)
+library(tidyverse)
+library(ggforce)
+library(Rcpp)
 
 # Define functions
 #------------------------------------------------------------------------------
@@ -36,7 +40,7 @@ get.shell <- function(n_s= 650L, n_t= 2000L,n= 1000, alpha, beta, phi, mu,
 	#outfile2= paste("./images/", sp, col1, "_3", ".png", sep="")
 	#--------------------------------------------------------------------------
 	
-	p <- ggplot() +
+	distPlot <- ggplot() +
 		geom_point(aes(x, z), df, size = 0.05, alpha = 0.05, color= col1) +
 		geom_path(aes(x, z), df, linewidth = 0.03, alpha = 0.03, color= col1) +
 		coord_equal() +
