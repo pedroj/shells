@@ -6,75 +6,17 @@
 #
 #    http://shiny.rstudio.com/
 #
-
 library(shiny)
 library(mathart) # devtools::install_github("marcusvolz/mathart)
 library(tidyverse)
 library(ggforce)
 library(Rcpp)
-
-# Define functions
-#------------------------------------------------------------------------------
-# Function to generate shells.
-#------------------------------------------------------------------------------
-get.shell <- function(n_s= 650L, n_t= 2000L,n= 1000, alpha, beta, phi, mu, 
-					  Omega, s_min, s_max, A, a, b, P, W_1= 1, W_2= 1, N= 0, 
-					  L= 0, D= 1, theta_start= -Inf, theta_end= 8*pi, x, z, 
-					  sp, col1, col2, myplot= 0) {
-	#--------------------------------------------------------------------------
-	TIME <- Sys.time()
-	#--------------------------------------------------------------------------
-	# Generate data
-	df <- mathart::mollusc(n_s = n_s, n_t = n_t,
-						   alpha = alpha, beta = beta, phi = phi, mu = mu, 
-						   Omega = Omega, s_min = s_min, s_max = s_max,
-						   A = A, a = a, b = b, P = P, W_1 = W_1, W_2 = W_2, 
-						   N = N, L = L, D = D,
-						   theta_start = theta_start, theta_end = theta_end)
-	#--------------------------------------------------------------------------
-	# Create plot
-	sp=   sp
-	col1= col1  # Shell color.
-	col2= col2  # Background color.
-	#outfile= paste("./images/", sp, col1, ".png", sep="")
-	#outfile2= paste("./images/", sp, col1, "_3", ".png", sep="")
-	#--------------------------------------------------------------------------
-	
-	distPlot <- ggplot() +
-		geom_point(aes(x, z), df, size = 0.05, alpha = 0.05, color= col1) +
-		geom_path(aes(x, z), df, linewidth = 0.03, alpha = 0.03, color= col1) +
-		coord_equal() +
-		theme_blankcanvas(margin_cm = 0) +
-		theme(plot.background = element_rect(fill = col2))
-	#p
-	
-	# Save plot
-	# ggsave(outfile, p, width = 60, height = 60, units = "cm", dpi= 300)
-	#--------------------------------------------------------------------------
-	Sys.time() - TIME
-	#--------------------------------------------------------------------------
-}
-
-theme_blankcanvas <- function(bg_col = "transparent", margin_cm = 2.5) {
-	theme(axis.title = element_blank(),
-		  axis.text = element_blank(),
-		  axis.ticks = element_blank(),
-		  axis.line = element_blank(),
-		  legend.position = "none",
-		  panel.background = element_rect(fill = bg_col, colour = bg_col),
-		  panel.border = element_blank(),
-		  panel.grid = element_blank(),
-		  plot.background = element_rect(fill = bg_col, colour = bg_col),
-		  plot.margin = unit(rep(margin_cm, 4), "cm"), # top, right, bottom, left
-		  strip.background = element_blank(),
-		  strip.text = element_blank())
-}
-
+#------------------------------------------------------------------------------	
 # Define UI for application that draws a histogram
 ui <- fluidPage(
     # Application title
     titlePanel("Models for Shells"),
-    plotOutput('distPlot'),
+    plotOutput("distPlot"),
     
     hr(),
     
@@ -218,7 +160,7 @@ ui <- fluidPage(
     	),
     )
     )
-#-----------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 # Description:
 #      Generates data for plotting mollusc shells and stores it in a data
 #      frame with (x, y, z) coordinates. The shell model is described in
@@ -249,13 +191,70 @@ ui <- fluidPage(
 #           cases set to -Inf
 # # theta_end: Not important for self-similar shells, except very small or
 #           large values can cause computational problems
-# ----------------------------------------------------------------------------
-
+#------------------------------------------------------------------------------	
 # Define server logic required to draw the shells
 server <- function(input, output) {
-
     output$distPlot <- renderPlot({
-    	#-----------------------------------
+    	#
+    	library(mathart) # devtools::install_github("marcusvolz/mathart)
+    	library(tidyverse)
+    	library(ggforce)
+    	library(Rcpp)
+    	#
+    	# Define functions
+    	#------------------------------------------------------------------------------
+    	# Function to generate shells.
+    	#------------------------------------------------------------------------------
+    	get.shell <- function(n_s= 650L, n_t= 2000L,n= 1000, alpha, beta, phi, mu, 
+    						  Omega, s_min, s_max, A, a, b, P, W_1= 1, W_2= 1, N= 0, 
+    						  L= 0, D= 1, theta_start= -Inf, theta_end= 8*pi, x, z, 
+    						  sp, col1, col2, myplot= 0) {
+    		#--------------------------------------------------------------------------
+    		#TIME <- Sys.time()
+    		#--------------------------------------------------------------------------
+    		# Generate data
+    		df <- mathart::mollusc(n_s = n_s, n_t = n_t,
+    							   alpha = alpha, beta = beta, phi = phi, mu = mu, 
+    							   Omega = Omega, s_min = s_min, s_max = s_max,
+    							   A = A, a = a, b = b, P = P, W_1 = W_1, W_2 = W_2, 
+    							   N = N, L = L, D = D,
+    							   theta_start = theta_start, theta_end = theta_end)
+    		#--------------------------------------------------------------------------
+    		# Create plot
+    		sp=   sp
+    		col1= col1  # Shell color.
+    		col2= col2  # Background color.
+    		#outfile= paste("./images/", sp, col1, ".png", sep="")
+    		#outfile2= paste("./images/", sp, col1, "_3", ".png", sep="")
+    		#--------------------------------------------------------------------------
+    		distPlot <- ggplot() +
+    			geom_point(aes(x, z), df, size = 0.05, alpha = 0.05, color= col1) +
+    			geom_path(aes(x, z), df, linewidth = 0.03, alpha = 0.03, color= col1) +
+    			coord_equal() +
+    			theme_blankcanvas(margin_cm = 0) +
+    			theme(plot.background = element_rect(fill = col2))
+    		#p
+    		# Save plot
+    		# ggsave(outfile, p, width = 60, height = 60, units = "cm", dpi= 300)
+    		#--------------------------------------------------------------------------
+    		#Sys.time() - TIME
+    		#--------------------------------------------------------------------------
+    	}
+    	theme_blankcanvas <- function(bg_col = "transparent", margin_cm = 2.5) {
+    		theme(axis.title = element_blank(),
+    			  axis.text = element_blank(),
+    			  axis.ticks = element_blank(),
+    			  axis.line = element_blank(),
+    			  legend.position = "none",
+    			  panel.background = element_rect(fill = bg_col, colour = bg_col),
+    			  panel.border = element_blank(),
+    			  panel.grid = element_blank(),
+    			  plot.background = element_rect(fill = bg_col, colour = bg_col),
+    			  plot.margin = unit(rep(margin_cm, 4), "cm"), # top, right, bottom, left
+    			  strip.background = element_blank(),
+    			  strip.text = element_blank())
+    	}
+    	#----------------------------------------------------------------------
     	get.shell(
     		# lyria
     		n_s = 650L,
@@ -286,6 +285,8 @@ server <- function(input, output) {
     	#------------------------------------
     })
 }
-
+#------------------------------------------------------------------------------
 # Run the application 
 shinyApp(ui = ui, server = server)
+#------------------------------------------------------------------------------
+#
