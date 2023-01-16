@@ -83,7 +83,7 @@ df <- mathart::mollusc(n_s = n_s, n_t = n_t,
 
 #-----------------------------------------------------------------------------
 # Create plot
-sp=   "conus_00"
+sp=   "conus_11"
 col1= "#000000ff"  # Shell color.
 col2= "#EBFFEBC3"  # Background color.
 outfile= paste("./images/", sp, col1, ".png", sep="")
@@ -100,7 +100,7 @@ p <- ggplot() +
 # p
 
 # Save plot
-ggsave(outfile, p, width = 50, height = 50, units = "cm", dpi= 300)
+ggsave(outfile, p, width = 60, height = 60, units = "cm", dpi= 300)
 
 #-----------------------------------------------------------------------------
 Sys.time() - TIME

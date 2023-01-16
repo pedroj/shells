@@ -14,8 +14,6 @@ ui <- fluidPage(
     titlePanel("Models for Shells"),
     plotOutput("distPlot"),
     
-    hr(),
-    # numericInput(inputId, label, value, min, max, step, width)
     fluidRow(
     	column(3,
     		   h4("Shell parameters"),

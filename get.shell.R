@@ -37,7 +37,7 @@
 # # theta_end: Not important for self-similar shells, except very small or
 #           large values can cause computational problems
 #------------------------------------------------------------------------------
-# Load packagess
+# Load packages
 library(mathart) # devtools::install_github("marcusvolz/mathart)
 library(tidyverse)
 library(ggforce)
@@ -99,9 +99,9 @@ get.shell(
 	theta_start = 0,
 	theta_end = 14.2*pi,
 	#-------------------------------------------
-		  sp= "lyria08",
-		  col1= "#EAE22D", # Shell color. 
-		  col2= "#06056D") # Bckgnd color.
+		  sp= "lyria010",
+		  col1= "#000000", # Shell color. 
+		  col2= "#EAEBDA") # Bckgnd color.
 	#-------------------------------------------
 
 #------------------------------------------------------------------------------
@@ -137,7 +137,7 @@ get.shell <- function(n_s= 650L, n_t= 2000L,n= 1000, alpha, beta, phi, mu,
   	theme_blankcanvas(margin_cm = 0) +
   	theme(plot.background = element_rect(fill = col2))
 
-		# p
+	p
   
 	# Save plot
 	ggsave(outfile, p, width = 60, height = 60, units = "cm", dpi= 300)
