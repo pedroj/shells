@@ -7,10 +7,6 @@
 #    http://shiny.rstudio.com/
 #
 library(shiny)
-library(mathart)               # devtools::install_github("marcusvolz/mathart)
-library(tidyverse)
-library(ggforce)
-library(Rcpp)
 #------------------------------------------------------------------------------	
 # Define UI for application that draws a histogram
 ui <- fluidPage(
