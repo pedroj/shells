@@ -79,13 +79,13 @@ library(Rcpp)
 TIME <- Sys.time()
 get.shell(
 	# Tonna
-	n_s = 650L,
-	n_t = 2000L,
-	n = 1000,
-	alpha = 85,
-	beta = 7,
-	phi = 12,
-	mu = 20,
+	n_s = 660L,
+	n_t = 800L,
+	n = 400,
+	alpha = 82.4,
+	beta = 0,
+	phi = 0,
+	mu = 10,
 	Omega = 0,
 	s_min = -90,
 	s_max = 60,
@@ -101,7 +101,7 @@ get.shell(
 	theta_start = 0,
 	theta_end = 10*pi,
 	#-------------------------------------------
-		  sp= "tonna07",
+		  sp= "tonna08",
 		  col1= "#000000", # Shell color. 
 		  col2= "#EAEBDA") # Bckgnd color.
 	#-------------------------------------------
@@ -110,7 +110,7 @@ Sys.time() - TIME
 #------------------------------------------------------------------------------
 # Function to generate shells.
 #------------------------------------------------------------------------------
-get.shell <- function(n_s= 650L, n_t= 2000L,n= 1000, alpha, beta, phi, mu, 
+get.shell <- function(n_s= 300L, n_t= 400L,n= 200, alpha, beta, phi, mu, 
 					  Omega, s_min, s_max, A, a, b, P, W_1= 1, W_2= 1, N= 0, 
 					  L= 0, D= 1, theta_start= -Inf, theta_end= 8*pi, x, z, 
 					  sp, col1, col2, myplot= 0) {
@@ -134,8 +134,8 @@ get.shell <- function(n_s= 650L, n_t= 2000L,n= 1000, alpha, beta, phi, mu,
 	#--------------------------------------------------------------------------
   
 	p <- ggplot() +
-  	geom_point(aes(x, z), df, size = 0.05, alpha = 0.05, color= col1) +
-  	geom_path(aes(x, z), df, linewidth = 0.03, alpha = 0.03, color= col1) +
+  	geom_point(aes(x, z), df, size = 0.05, alpha = 0.15, color= col1) +
+  	geom_path(aes(x, z), df, linewidth = 0.03, alpha = 0.09, color= col1) +
   	coord_equal() +
   	theme_blankcanvas(margin_cm = 0) +
   	theme(plot.background = element_rect(fill = col2))
