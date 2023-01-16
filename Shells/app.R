@@ -74,7 +74,7 @@ theme_blankcanvas <- function(bg_col = "transparent", margin_cm = 2.5) {
 ui <- fluidPage(
     # Application title
     titlePanel("Models for Shells"),
-    plotOutput('plot'),
+    plotOutput('distPlot'),
     
     hr(),
     
