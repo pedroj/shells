@@ -72,26 +72,35 @@ theme_blankcanvas <- function(bg_col = "transparent", margin_cm = 2.5) {
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
-
     # Application title
     titlePanel("Models for Shells"),
-
-    # Sidebar with a slider input for number of bins 
-    sidebarLayout(
-        sidebarPanel(
-            sliderInput("alpha",
-                        "Equiangular angle of spiral (degrees):",
-                        min = 1,
-                        max = 100,
-                        value = 80)
-        ),
-        
-        # Show a plot of the generated distribution
-        mainPanel(
-           plotOutput("distPlot")
-        )
+    plotOutput('plot'),
+    
+    hr(),
+    
+    fluidRow(
+    	column(3,
+    		   h4("Shell parameters"),
+    		   sliderInput("alpha",
+    		   			"Equiangular angle of spiral (degrees):",
+    		   			min = 1,
+    		   			max = 100,
+    		   			value = 80),
+    		   br(),
+    		   checkboxInput('jitter', 'Jitter'),
+    		   checkboxInput('smooth', 'Smooth')
+    	),
+    	column(4, offset = 1,
+    		   selectInput('x', 'X', names(dataset)),
+    		   selectInput('y', 'Y', names(dataset), names(dataset)[[2]]),
+    		   selectInput('color', 'Color', c('None', names(dataset)))
+    	),
+    	column(4,
+    		   selectInput('facet_row', 'Facet Row', c(None='.', names(dataset))),
+    		   selectInput('facet_col', 'Facet Column', c(None='.', names(dataset)))
+    	),
+    		)
     )
-)
 
 # Define server logic required to draw the shells
 server <- function(input, output) {
