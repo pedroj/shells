@@ -7,7 +7,7 @@
 #    http://shiny.rstudio.com/
 #
 library(shiny)
-library(mathart) # devtools::install_github("marcusvolz/mathart)
+library(mathart)               # devtools::install_github("marcusvolz/mathart)
 library(tidyverse)
 library(ggforce)
 library(Rcpp)
