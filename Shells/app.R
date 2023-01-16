@@ -105,7 +105,7 @@ ui <- fluidPage(
     	),
     	column(4,
     		   sliderInput("mu",
-    		   			"Amount of "leaning over" of aperture (degrees):",
+    		   			"Amount of leaning over of aperture (degrees):",
     		   			min = 1,
     		   			max = 100,
     		   			value = 80),
@@ -208,8 +208,10 @@ ui <- fluidPage(
     		   			value = 80),
     	),
     	column(4,
-    		   sliderInput("a",
-    		   			"Major radius of ellipse at theta=0:",
+    		   sliderInput("theta_end",
+    		   			"Not important for self-similar shells, except very 
+    		   			small or large values can cause computational 
+    		   			problems:",
     		   			min = 1,
     		   			max = 100,
     		   			value = 80),
