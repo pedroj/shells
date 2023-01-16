@@ -118,17 +118,17 @@ ui <- fluidPage(
     		   			value = 80),
     	),
     	column(4,
-    		   sliderInput("phi",
-    		   			"Tilt of ellipse major axis from horizontal 
-    		   			plane (degrees):",
+    		   sliderInput("s_min",
+    		   			"Angle at which aperture-generating curve 
+    		   			begins (degrees):",
     		   			min = 1,
     		   			max = 100,
     		   			value = 80),
     	),
     	column(4,
-    		   sliderInput("phi",
-    		   			"Tilt of ellipse major axis from horizontal 
-    		   			plane (degrees):",
+    		   sliderInput("s_max",
+    		   			"Angle at which aperture-generating curve 
+    		   			ends (degrees):",
     		   			min = 1,
     		   			max = 100,
     		   			value = 80),
