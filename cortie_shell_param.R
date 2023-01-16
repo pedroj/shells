@@ -54,8 +54,8 @@ TIME <- Sys.time()
 n_s = 650L
 n_t = 2000L
 n = 1000
-alpha = 87
-beta = 7
+alpha = 86
+beta = 8
 phi = 78
 mu = 0
 Omega = 0

@@ -1,5 +1,10 @@
 #------------------------------------------------------------------------------	
 library(shiny)
+# Load packages
+library(mathart) # devtools::install_github("marcusvolz/mathart)
+library(tidyverse)
+library(ggforce)
+library(Rcpp)
 #------------------------------------------------------------------------------
 # Define UI for application that draws a histogram
 ui <- fluidPage(
@@ -145,8 +150,6 @@ ui <- fluidPage(
         	   			  or Diodora, which grow at one end while dissolving 
         	   			  at the other. 
     		   			  In all other cases set to -Inf:",
-    		   			min = 0,
-    		   			max = 100,
     		   			value = 0),
         ),
         column(3,
@@ -154,8 +157,6 @@ ui <- fluidPage(
         	   			 "theta_end: Not important for self-similar shells, 
         	   			  except very small or large values can cause 
         	   			  computational problems:",
-    		   			min = pi,
-    		   			max = 90*pi,
     		   			value = 30*pi),
         )),
         # Show a plot of the generated model
@@ -166,15 +167,10 @@ ui <- fluidPage(
 ))
 #------------------------------------------------------------------------------
 # Define server logic required to draw a histogram
-server <- function(input, output) {
+server <- function(input, output, session) {
+	output$distPlot <- renderPlot({
 	#--------------------------------------------------------------------------
 	# Code for shells.
-	#--------------------------------------------------------------------------
-	# Load packages
-	library(mathart) # devtools::install_github("marcusvolz/mathart)
-	library(tidyverse)
-	library(ggforce)
-	library(Rcpp)
 	#--------------------------------------------------------------------------
 	# Generate data
 	df <- mathart::mollusc(n_s = n_s, n_t = n_t,
@@ -207,21 +203,14 @@ server <- function(input, output) {
 		  strip.text = element_blank())
     }
 
-	distPlot<- ggplot() +
+	ggplot() +
 		geom_point(aes(x, z), df, size = 0.03, alpha = 0.03, color= col1) +
 		geom_path(aes(x, z), df, linewidth = 0.03, alpha = 0.03, color= col1) +
 		coord_equal() +
 		theme_blankcanvas(margin_cm = 0) +
 		theme(plot.background = element_rect(fill = col2))
-	
-	withProgress(message = 'Calculation in progress',
-				 detail = 'This may take a while...', value = 0, {
-				 	for (i in 1:15) {
-				 		incProgress(1/15)
-				 		Sys.sleep(0.25)
-				 	}
-				 })
-	#--------------------------------------------------------------------------
+		#--------------------------------------------------------------------------
+	})
 }
 # Run the application 
 shinyApp(ui = ui, server = server)
