@@ -134,9 +134,9 @@ ui <- fluidPage(
     		   			value = 80),
     	),
     	column(4,
-    		   sliderInput("phi",
-    		   			"Tilt of ellipse major axis from horizontal 
-    		   			plane (degrees):",
+    		   sliderInput("A",
+    		   			"Distance from main origin to local origin of 
+    		   			aperture at theta=0:",
     		   			min = 1,
     		   			max = 100,
     		   			value = 80),
