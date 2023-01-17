@@ -173,12 +173,16 @@ server <- function(input, output, session) {
 	# Code for shells.
 	#--------------------------------------------------------------------------
 	# Generate data
-	df <- mathart::mollusc(n_s = n_s, n_t = n_t,
-						   alpha = alpha, beta = beta, phi = phi, mu = mu, 
-						   Omega = Omega, s_min = s_min, s_max = s_max,
-						   A = A, a = a, b = b, P = P, W_1 = W_1, W_2 = W_2, 
-						   N = N, L = L, D = D,
-						   theta_start = theta_start, theta_end = theta_end)
+	df <- mathart::mollusc(n_s = input$n_s, n_t = input$n_t,
+						   alpha = input$alpha, beta = input$beta, 
+						   phi = input$phi, mu = input$mu, 
+						   Omega = input$Omega, s_min = input$s_min, 
+						   s_max = input$s_max,
+						   A = input$A, a = input$a, b = input$b, P = input$P, 
+						   W_1 = input$W_1, W_2 = input$W_2, 
+						   N = input$N, L = input$L, D = input$D,
+						   theta_start = input$theta_start, 
+						   theta_end = input$theta_end)
 	#--------------------------------------------------------------------------
 	# Create plot
 	sp=   "conus_11"
