@@ -162,8 +162,10 @@ ui <- fluidPage(
         # Show a plot of the generated model
         mainPanel(
         column(8,
-        	   plotOutput("distPlot"))
+        	   plotOutput("distPlot"),
+               downloadButton(outputId = "down", label = "Download the plot")
         )
+    )
 ))
 #------------------------------------------------------------------------------
 # Define server logic required to draw a shell

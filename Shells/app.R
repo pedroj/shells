@@ -16,12 +16,12 @@ ui <- fluidPage(
 			column(3,
 				   numericInput("n_s",
 				   			 "n_s: Number of points to generate with respect to s:",
-				   			 value = 650)
+				   			 value = 350)
 			),
 			column(3,
 				   numericInput("n_t",
 				   			 "n_t: Number of points to generate with respect to theta:",
-				   			 value = 2000)
+				   			 value = 1000)
 			),
 			column(3,
 				   numericInput("n",
@@ -209,7 +209,7 @@ server <- function(input, output, session) {
 				#	options(repr.plot.width= 80, repr.plot.height= 80)
 				ggplot() +
 					geom_point(aes(x, z), df, size = 0.03, alpha = 0.03, color= col1) +
-					geom_path(aes(x, z), df, linewidth = 0.03, alpha = 0.03, color= col1) +
+					geom_path(aes(x, z), df, linewidth = 0.01, alpha = 0.03, color= col1) +
 					coord_equal() +
 					theme_blankcanvas(margin_cm = 0) +
 					theme(plot.background = element_rect(fill = col2))
@@ -217,12 +217,12 @@ server <- function(input, output, session) {
 				# Save plot
 				#ggsave(outfile, distPlot, width = 60, height = 60, units = "cm", dpi= 300)
 				#--------------------------------------------------------------------------
-	},   width = 850, height = 650, res = 150)
+	},   width = 950, height = 950, res = 300)
 }
+
 # Run the application 
 shinyApp(ui = ui, server = server)
 #------------------------------------------------------------------------------
 #
-
 
 
