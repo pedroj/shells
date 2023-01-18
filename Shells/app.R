@@ -14,14 +14,14 @@ ui <- fluidPage(
 	sidebarLayout(
 		sidebarPanel(
 			column(3,
-				   textInput("n_s",
-				   			 "n_s: N. points relative to s:",
-				   			 value = 350)
+				   numericInput("n_s",
+				   			 "n_s: Number of points to generate with respect to s:",
+				   			 value = 650)
 			),
 			column(3,
 				   numericInput("n_t",
-				   			 "n_t: N. points relative to theta:",
-				   			 value = 1000)
+				   			 "n_t: Number of points to generate with respect to theta:",
+				   			 value = 2000)
 			),
 			column(3,
 				   numericInput("n",
@@ -30,107 +30,102 @@ ui <- fluidPage(
 			),
 			column(3,
 				   sliderInput("alpha",
-				   			"alpha: Equiangular angle of 
-				   			spiral (deg):",
+				   			"alpha: Equiangular angle of spiral (degrees):",
 				   			min = 1,
-				   			max = 150,
+				   			max = 500,
 				   			value = 87)
 			),
 			column(3, # offset = 1,
 				   sliderInput("beta",
-				   			"beta: Angle z-axis-line from aperture 
-    		   			     local origin -> xyz origin (deg):",
+				   			"beta: Angle between z-axis and line from aperture 
+    		   			local origin to xyz origin (degrees):",
 				   			min = 1,
-				   			max = 100,
+				   			max = 500,
 				   			value = 7),
 			),
 			column(3,
 				   sliderInput("phi",
-				   			"phi: Tilt ellipse 
-				   			major axis (deg):",
+				   			"phi: Tilt of ellipse major axis from horizontal 
+    		   			plane (degrees):",
 				   			min = 1,
-				   			max = 180,
+				   			max = 500,
 				   			value = 78),
 			),
 			column(3,
 				   sliderInput("mu",
-				   			"mu: Leaning over of 
-				   			aperture (deg):",
+				   			"mu: Amount of leaning over of aperture (degrees):",
 				   			min = 0,
-				   			max = 180,
+				   			max = 500,
 				   			value = 0),
 			),
 			column(3,
 				   sliderInput("Omega",
-				   			"Omega: Azimuthal rotation, 
-				   			aperture (deg):",
+				   			"Omega: Amount of azimuthal rotation of aperture (degrees):",
 				   			min = 0,
-				   			max = 360,
+				   			max = 500,
 				   			value = 0),
 			),
 			column(3,
-				   numericInput("s_min",
-				   			"s_min: Angle aperture-generating 
-				   			curve start (deg):",
+				   sliderInput("s_min",
+				   			"s_min: Angle at which aperture-generating curve 
+    		   			begins (degrees):",
 				   			min = -300,
 				   			max = 300,
 				   			value = -180),
 			),
 			column(3,
-				   numericInput("s_max",
-				   			"s_max: Angle aperture-generating 
-				   			curve ends (deg):",
+				   sliderInput("s_max",
+				   			"s_max: Angle at which aperture-generating curve 
+    		   			ends (degrees):",
 				   			min = 1,
 				   			max = 100,
 				   			value = 2),
 			),
 			column(3,
 				   numericInput("A",
-				   			 "A: Distance main origin-local 
-				   			 origin aperture at theta=0:",
+				   			 "A: Distance from main origin to local origin of 
+    		   			aperture at theta=0:",
 				   			 min = 1,
 				   			 max = 500,
 				   			 value = 7),
 			),
 			column(3,
 				   numericInput("a",
-				   			 "a: Major radius ellipse at theta=0:",
+				   			 "a: Major radius of ellipse at theta=0:",
 				   			 min = 1,
 				   			 max = 500,
 				   			 value = 4.3),
 			),
 			column(3,
 				   numericInput("b",
-				   			 "b: Minor radius ellipse at theta=0:",
+				   			 "b: Minor radius of ellipse at theta=0:",
 				   			 min = 0,
 				   			 max = 500,
 				   			 value = 1.0),
 			),
 			column(3,
 				   numericInput("P",
-				   			 "P: Position of nodule 
-				   			 (angle), s (deg):",
+				   			 "P: Position of nodule in terms of the 
+    		   			angle, s (degrees):",
 				   			 value = 80, min = 1,max = 180)
 			),
 			column(3,
 				   numericInput("W_1",
-				   			 "W_1: Width of nodule, 
-				   			 s-direction (degrees):",
+				   			 "W_1: Width of nodule in s-direction (degrees):",
 				   			 min = 0,
 				   			 max = 180,
 				   			 value = 0),
 			),
 			column(3,
 				   numericInput("W_2",
-				   			 "W_2: Width of nodule, 
-				   			 theta-direction (deg):",
+				   			 "W_2: Width of nodule in theta-direction (degrees):",
 				   			 min = 1,
 				   			 max = 100,
 				   			 value = 1),
 			),
 			column(3,
 				   numericInput("N",
-				   			 "N: No. of nodules/whorl:",
+				   			 "N: Number of nodules per whorl:",
 				   			 min = 0,
 				   			 max = 100,
 				   			 value = 1),
@@ -144,25 +139,24 @@ ui <- fluidPage(
 			),
 			column(3,
 				   numericInput("D",
-				   			 "D: Sense of coiling; 
-				   			 1=dextral, -1=sinistral:",
+				   			 "D: Sense of coiling; 1=dextral, -1=sinistral:",
 				   			 min = -1,
 				   			 max = 1,
 				   			 value = 1),
 			),
 			column(3,
 				   numericInput("theta_start",
-				   			 "theta_start: (for Dentalium 
-        	   			      or Diodora)
-    		   			      Otherwise, set to -Inf:",
+				   			 "theta_start: Required for shells such as Dentalium 
+        	   			  or Diodora, which grow at one end while dissolving 
+        	   			  at the other. 
+    		   			  In all other cases set to -Inf:",
 				   			 value = 0),
 			),
 			column(3,
 				   numericInput("theta_end",
-				   			 "theta_end: 
-				   			 trivial for self-similar shells, 
-        	   			     except very small or large values can cause 
-        	   			     computational problems:",
+				   			 "theta_end: Not important for self-similar shells, 
+        	   			  except very small or large values can cause 
+        	   			  computational problems:",
 				   			 value = 30*pi),
 			)),
 		# Show a plot of the generated model
@@ -174,7 +168,7 @@ ui <- fluidPage(
 #------------------------------------------------------------------------------
 # Define server logic required to draw a shell
 server <- function(input, output, session) {
-		output$distPlot <- renderPlot({
+	output$distPlot <- renderPlot({
 		#--------------------------------------------------------------------------
 		# Code for shells.
 		#--------------------------------------------------------------------------
@@ -192,8 +186,8 @@ server <- function(input, output, session) {
 		#--------------------------------------------------------------------------
 		# Create plot
 		sp=   "conus_12"
-		col1= "#5C0000"  # Shell color.c("#FFFFFF", "#8F0606", "#FFFFFF")
-			col2= "#FFF0F0"  # Background color.
+		col1= "#000000ff"  # Shell color.
+			col2= "#EBFFEBC3"  # Background color.
 				outfile= paste("./images/", sp, col1, ".png", sep="")
 				outfile2= paste("./images/", sp, col1, "_3", ".png", sep="")
 				#--------------------------------------------------------------------------
@@ -215,17 +209,17 @@ server <- function(input, output, session) {
 				#	options(repr.plot.width= 80, repr.plot.height= 80)
 				ggplot() +
 					geom_point(aes(x, z), df, size = 0.03, alpha = 0.03, color= col1) +
-					geom_path(aes(x, z), df, linewidth = 0.01, alpha = 0.03, color= col1) +
+					geom_path(aes(x, z), df, linewidth = 0.03, alpha = 0.03, color= col1) +
 					coord_equal() +
 					theme_blankcanvas(margin_cm = 0) +
 					theme(plot.background = element_rect(fill = col2))
-				#distPlot # The plot.
+				#	distPlot # The plot.
 				# Save plot
-				# ggsave(outfile, distPlot, width = 60, height = 60, units = "cm", dpi= 300)
+				#ggsave(outfile, distPlot, width = 60, height = 60, units = "cm", dpi= 300)
 				#--------------------------------------------------------------------------
-	},   width = 990, height = 1150, res = 300)
-	}
-
+	},   width = 850, height = 850, res = 300)
+}
 # Run the application 
 shinyApp(ui = ui, server = server)
 #------------------------------------------------------------------------------
+#
