@@ -191,8 +191,8 @@ server <- function(input, output, session) {
 		#--------------------------------------------------------------------------
 		# Create plot
 		sp=   "conus_12"
-		col1= "#000000ff"  # Shell color.
-			col2= "#EBFFEBC3"  # Background color.
+		col1= "#5C0000"  # Shell color.c("#FFFFFF", "#8F0606", "#FFFFFF")
+			col2= "#FFF0F0"  # Background color.
 				outfile= paste("./images/", sp, col1, ".png", sep="")
 				outfile2= paste("./images/", sp, col1, "_3", ".png", sep="")
 				#--------------------------------------------------------------------------
@@ -218,16 +218,13 @@ server <- function(input, output, session) {
 					coord_equal() +
 					theme_blankcanvas(margin_cm = 0) +
 					theme(plot.background = element_rect(fill = col2))
-				#	distPlot # The plot.
+				#distPlot # The plot.
 				# Save plot
-				#ggsave(outfile, distPlot, width = 60, height = 60, units = "cm", dpi= 300)
+				# ggsave(outfile, distPlot, width = 60, height = 60, units = "cm", dpi= 300)
 				#--------------------------------------------------------------------------
-	},   width = 950, height = 950, res = 300)
-}
+	},   width = 990, height = 1150, res = 300)
+	}
 
 # Run the application 
 shinyApp(ui = ui, server = server)
 #------------------------------------------------------------------------------
-#
-
-
