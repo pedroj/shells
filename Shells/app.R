@@ -14,6 +14,11 @@ ui <- fluidPage(
 	sidebarLayout(
 		sidebarPanel(
 			column(3,
+				   textInput("n_s",
+				   			 "n_s: Number of points to generate with respect to s:",
+				   			 value = 350)
+			),
+			column(3,
 				   numericInput("n_s",
 				   			 "n_s: Number of points to generate with respect to s:",
 				   			 value = 350)
@@ -32,7 +37,7 @@ ui <- fluidPage(
 				   sliderInput("alpha",
 				   			"alpha: Equiangular angle of spiral (degrees):",
 				   			min = 1,
-				   			max = 500,
+				   			max = 150,
 				   			value = 87)
 			),
 			column(3, # offset = 1,
@@ -40,7 +45,7 @@ ui <- fluidPage(
 				   			"beta: Angle between z-axis and line from aperture 
     		   			local origin to xyz origin (degrees):",
 				   			min = 1,
-				   			max = 500,
+				   			max = 100,
 				   			value = 7),
 			),
 			column(3,
@@ -48,25 +53,25 @@ ui <- fluidPage(
 				   			"phi: Tilt of ellipse major axis from horizontal 
     		   			plane (degrees):",
 				   			min = 1,
-				   			max = 500,
+				   			max = 180,
 				   			value = 78),
 			),
 			column(3,
 				   sliderInput("mu",
 				   			"mu: Amount of leaning over of aperture (degrees):",
 				   			min = 0,
-				   			max = 500,
+				   			max = 180,
 				   			value = 0),
 			),
 			column(3,
 				   sliderInput("Omega",
 				   			"Omega: Amount of azimuthal rotation of aperture (degrees):",
 				   			min = 0,
-				   			max = 500,
+				   			max = 360,
 				   			value = 0),
 			),
 			column(3,
-				   sliderInput("s_min",
+				   numericInput("s_min",
 				   			"s_min: Angle at which aperture-generating curve 
     		   			begins (degrees):",
 				   			min = -300,
@@ -74,7 +79,7 @@ ui <- fluidPage(
 				   			value = -180),
 			),
 			column(3,
-				   sliderInput("s_max",
+				   numericInput("s_max",
 				   			"s_max: Angle at which aperture-generating curve 
     		   			ends (degrees):",
 				   			min = 1,
@@ -168,7 +173,7 @@ ui <- fluidPage(
 #------------------------------------------------------------------------------
 # Define server logic required to draw a shell
 server <- function(input, output, session) {
-	output$distPlot <- renderPlot({
+		output$distPlot <- renderPlot({
 		#--------------------------------------------------------------------------
 		# Code for shells.
 		#--------------------------------------------------------------------------
