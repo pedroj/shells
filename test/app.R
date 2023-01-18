@@ -6,7 +6,7 @@ library(tidyverse)
 library(ggforce)
 library(Rcpp)
 #------------------------------------------------------------------------------
-# Define UI for application that draws a histogram
+# Define UI for application that draws a shell
 ui <- fluidPage(
     # Application title
     titlePanel("Models of shells (Mollusca)"),
@@ -14,7 +14,7 @@ ui <- fluidPage(
     sidebarLayout(
         sidebarPanel(
         column(3,
-        		   numericInput("n_s",
+        	   numericInput("n_s",
         				 "n_s: Number of points to generate with respect to s:",
         				 value = 650)
         ),
@@ -32,7 +32,7 @@ ui <- fluidPage(
         	   sliderInput("alpha",
         	   			"alpha: Equiangular angle of spiral (degrees):",
         	   			min = 1,
-        	   			max = 100,
+        	   			max = 500,
         	   			value = 87)
         ),
         column(3, # offset = 1,
@@ -40,7 +40,7 @@ ui <- fluidPage(
         	   			"beta: Angle between z-axis and line from aperture 
     		   			local origin to xyz origin (degrees):",
     		   			min = 1,
-    		   			max = 100,
+    		   			max = 500,
     		   			value = 7),
         ),
         column(3,
@@ -48,21 +48,21 @@ ui <- fluidPage(
         	   			"phi: Tilt of ellipse major axis from horizontal 
     		   			plane (degrees):",
     		   			min = 1,
-    		   			max = 100,
+    		   			max = 500,
     		   			value = 78),
         ),
         column(3,
         	   sliderInput("mu",
         	   			"mu: Amount of leaning over of aperture (degrees):",
         	   			min = 0,
-        	   			max = 100,
+        	   			max = 500,
         	   			value = 0),
         ),
         column(3,
         	   sliderInput("Omega",
         	   			"Omega: Amount of azimuthal rotation of aperture (degrees):",
         	   			min = 0,
-        	   			max = 100,
+        	   			max = 500,
         	   			value = 0),
         ),
         column(3,
@@ -82,38 +82,38 @@ ui <- fluidPage(
     		   			value = 2),
         ),
         column(3,
-        	   sliderInput("A",
+        	   numericInput("A",
         	   			"A: Distance from main origin to local origin of 
     		   			aperture at theta=0:",
     		   			min = 1,
-    		   			max = 100,
+    		   			max = 500,
     		   			value = 7),
         ),
         column(3,
-        	   sliderInput("a",
+        	   numericInput("a",
         	   			"a: Major radius of ellipse at theta=0:",
         	   			min = 1,
-        	   			max = 100,
+        	   			max = 500,
         	   			value = 4.3),
         ),
         column(3,
-        	   sliderInput("b",
+        	   numericInput("b",
         	   			"b: Minor radius of ellipse at theta=0:",
-        	   			min = 1,
-        	   			max = 100,
+        	   			min = 0,
+        	   			max = 500,
         	   			value = 1.0),
         ),
         column(3,
         	   numericInput("P",
         	   			 "P: Position of nodule in terms of the 
     		   			angle, s (degrees):",
-    		   			value = 80, min = 1,max = 100)
+    		   			value = 80, min = 1,max = 180)
         ),
         column(3,
         	   numericInput("W_1",
         	   			 "W_1: Width of nodule in s-direction (degrees):",
-        	   			 min = 1,
-        	   			 max = 100,
+        	   			 min = 0,
+        	   			 max = 180,
         	   			 value = 0),
         ),
         column(3,
@@ -126,14 +126,14 @@ ui <- fluidPage(
         column(3,
         	   numericInput("N",
         	   			 "N: Number of nodules per whorl:",
-        	   			 min = 1,
+        	   			 min = 0,
         	   			 max = 100,
         	   			 value = 1),
         ),
         column(3,
         	   numericInput("L",
         	   			 "L: Height of nodule at theta=0:",
-        	   			 min = 1,
+        	   			 min = 0,
         	   			 max = 100,
         	   			 value = 0),
         ),
@@ -166,7 +166,7 @@ ui <- fluidPage(
         )
 ))
 #------------------------------------------------------------------------------
-# Define server logic required to draw a histogram
+# Define server logic required to draw a shell
 server <- function(input, output, session) {
 	output$distPlot <- renderPlot({
 	#--------------------------------------------------------------------------
@@ -185,11 +185,11 @@ server <- function(input, output, session) {
 						   theta_end = input$theta_end)
 	#--------------------------------------------------------------------------
 	# Create plot
-	sp=   "conus_11"
+	sp=   "conus_12"
 	col1= "#000000ff"  # Shell color.
 	col2= "#EBFFEBC3"  # Background color.
-	#outfile= paste("./images/", sp, col1, ".png", sep="")
-	#outfile2= paste("./images/", sp, col1, "_3", ".png", sep="")
+	outfile= paste("./images/", sp, col1, ".png", sep="")
+	outfile2= paste("./images/", sp, col1, "_3", ".png", sep="")
 	#--------------------------------------------------------------------------
 	#
 	theme_blankcanvas <- function(bg_col = "transparent", margin_cm = 2.5) {
@@ -206,15 +206,18 @@ server <- function(input, output, session) {
 		  strip.background = element_blank(),
 		  strip.text = element_blank())
     }
-
+#	options(repr.plot.width= 80, repr.plot.height= 80)
 	ggplot() +
 		geom_point(aes(x, z), df, size = 0.03, alpha = 0.03, color= col1) +
 		geom_path(aes(x, z), df, linewidth = 0.03, alpha = 0.03, color= col1) +
 		coord_equal() +
 		theme_blankcanvas(margin_cm = 0) +
 		theme(plot.background = element_rect(fill = col2))
-		#--------------------------------------------------------------------------
-	})
+#	distPlot # The plot.
+	# Save plot
+	#ggsave(outfile, distPlot, width = 60, height = 60, units = "cm", dpi= 300)
+	#--------------------------------------------------------------------------
+	},   width = 650, height = 650, res = 150)
 }
 # Run the application 
 shinyApp(ui = ui, server = server)
