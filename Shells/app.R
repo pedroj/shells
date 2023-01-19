@@ -191,7 +191,6 @@ server <- function(input, output, session) {
 				outfile= paste("./images/", sp, col1, ".png", sep="")
 				outfile2= paste("./images/", sp, col1, "_3", ".png", sep="")
 				#--------------------------------------------------------------------------
-				#
 				theme_blankcanvas <- function(bg_col = "transparent", margin_cm = 2.5) {
 					theme(axis.title = element_blank(),
 						  axis.text = element_blank(),
@@ -207,7 +206,7 @@ server <- function(input, output, session) {
 						  strip.text = element_blank())
 				}
 				#	options(repr.plot.width= 80, repr.plot.height= 80)
-				ggplot() +
+				distPlot<- ggplot() +
 					geom_point(aes(x, z), df, size = 0.03, alpha = 0.03, color= col1) +
 					geom_path(aes(x, z), df, linewidth = 0.03, alpha = 0.03, color= col1) +
 					coord_equal() +
@@ -215,9 +214,10 @@ server <- function(input, output, session) {
 					theme(plot.background = element_rect(fill = col2))
 				#	distPlot # The plot.
 				# Save plot
-				#ggsave(outfile, distPlot, width = 60, height = 60, units = "cm", dpi= 300)
+				ggsave(outfile, distPlot, width = 60, height = 60, units = "cm", dpi= 300)
+				distPlot
 				#--------------------------------------------------------------------------
-	},   width = 850, height = 850, res = 300)
+	},   width = 650, height = 650, res = 150)
 }
 # Run the application 
 shinyApp(ui = ui, server = server)
