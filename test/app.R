@@ -66,7 +66,7 @@ ui <- fluidPage(
         	   			value = 0),
         ),
         column(3,
-        	   sliderInput("s_min",
+        	   numericInput("s_min",
         	   			"s_min: Angle at which aperture-generating 
         	   			 curve begins (deg):",
     		   			min = -300,
@@ -74,7 +74,7 @@ ui <- fluidPage(
     		   			value = -180),
         ),
         column(3,
-        	   sliderInput("s_max",
+        	   numericInput("s_max",
         	   			"s_max: Angle at which aperture-generating 
         	   			 curve ends (deg):",
     		   			min = 1,
@@ -130,7 +130,7 @@ ui <- fluidPage(
         	   			 "N: No. nodules per whorl:",
         	   			 min = 0,
         	   			 max = 100,
-        	   			 value = 1),
+        	   			 value = 0),
         ),
         column(3,
         	   numericInput("L",
@@ -155,10 +155,13 @@ ui <- fluidPage(
         ),
         column(3,
         	   numericInput("theta_end",
-        	   			 "theta_end: Not important for self-similar 
-        	   			  shells, except small or large values 
-        	   			  can cause computational problems:",
+        	   			 "theta_end: Unimportant for 
+        	   			  self-similar shells:",
     		   			value = 30*pi),
+       br(),
+	   column(2,
+        	   	   submitButton("Update View", icon("refresh")),
+        	   ),
         )),
         # Show a plot of the generated model
         mainPanel(
@@ -187,8 +190,8 @@ server <- function(input, output, session) {
 	#--------------------------------------------------------------------------
 	# Create plot
 	sp=   "conus_12"
-	col1= "#000000ff"  # Shell color.
-	col2= "#EBFFEBC3"  # Background color.
+	col1= "#00000000"  # Shell color.
+	col2= "#FFFFFFFF"  # Background color.
 	outfile= paste("./images/", sp, col1, ".png", sep="")
 	outfile2= paste("./images/", sp, col1, "_3", ".png", sep="")
 	#--------------------------------------------------------------------------
