@@ -181,8 +181,8 @@ ui <- fluidPage(
 			column(2,
 				   submitButton("Update View", icon("refresh")),
 			),
-			column(2, colourInput("col1", "Shell", "black")),
-			column(2, colourInput("col2", "Bckg", "white")),
+			column(2, colourInput("col1", "Shell color", "black")),
+			column(2, colourInput("col2", "Bckg color", "white")),
 			column(10,
 				   plotOutput("distPlot"))
 		)
