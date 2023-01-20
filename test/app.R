@@ -208,7 +208,7 @@ server <- function(input, output, session) {
 		  plot.margin = unit(rep(margin_cm, 4), "cm"), # top, right, bottom, left
 		  strip.background = element_blank(),
 		  strip.text = element_blank())
-    }
+	}
 #	options(repr.plot.width= 80, repr.plot.height= 80)
 	ggplot() +
 		geom_point(aes(x, z), df, size = 0.03, alpha = 0.03, color= col1) +
