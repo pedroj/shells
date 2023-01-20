@@ -157,14 +157,13 @@ ui <- fluidPage(
         	   numericInput("theta_end",
         	   			 "theta_end: Unimportant for 
         	   			  self-similar shells:",
-    		   			value = 30*pi),
-       br(),
-	   column(2,
-        	   	   submitButton("Update View", icon("refresh")),
-        	   ),
-        )),
+    		   			value = 30*pi)        )),
         # Show a plot of the generated model
         mainPanel(
+        	column(2,
+        		   submitButton("Update View", icon("refresh")),
+        	),
+        	br(),
         	column(8,
         		   plotOutput("distPlot"))
         )
