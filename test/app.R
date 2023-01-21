@@ -242,7 +242,9 @@ server <- function(input, output, session) {
 	},   width = 750, height = 750, res = 150)
 }
 # Run the application 
-shinyApp(ui = ui, server = server)
+#shinyApp(ui = ui, server = server)
+runGadget(ui, server, viewer = dialogViewer("Shells", width = 1800, height = 1800))
+
 #------------------------------------------------------------------------------
 #
 
