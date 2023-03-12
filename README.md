@@ -6,7 +6,7 @@ For years I've been doing figures and illustrations for scientific papers and no
 
 This is my main motivation to keep working on this project. And the first try I made was with shells. Please have a look here: [https://pedroj.github.io/shells](https://pedroj.github.io/shells).
 
-![](./images/calliostoma_00#363524.jpg)
+![](https://raw.githubusercontent.com/pedroj/shells/main/images/calliostoma_00%23363524.jpg)
 
 ----------------
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
