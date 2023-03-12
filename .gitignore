@@ -28,4 +28,6 @@ vignettes/*.pdf
 .Renviron
 .DS_Store
 images/*.*
+# png shell files
+images/*.png
 
